@@ -74,24 +74,10 @@ body {
   gap: 10px;
 }
 
-.logo-icon {
-  width: 32px;
+.logo-img {
   height: 32px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 16px;
-  color: var(--bg);
-}
-
-.logo-text {
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  color: var(--text);
+  width: auto;
+  display: block;
 }
 
 .nav-cta {

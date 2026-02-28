@@ -74,8 +74,7 @@ function App() {
       <nav className="nav">
         <div className="nav-inner">
           <div className="logo">
-            <span className="logo-icon">G</span>
-            <span className="logo-text">growpal</span>
+            <img src="/logo.png" alt="growpal" className="logo-img" />
           </div>
           <button className="nav-cta" onClick={scrollToApply}>
             Aplikuj o darmowe miejsce
@@ -413,8 +412,7 @@ function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="logo">
-            <span className="logo-icon">G</span>
-            <span className="logo-text">growpal</span>
+            <img src="/logo.png" alt="growpal" className="logo-img" />
           </div>
           <p className="footer-copy">&copy; {new Date().getFullYear()} growpal. Wzrost napędzany AI dla małego ecommerce.</p>
         </div>
