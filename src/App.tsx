@@ -23,6 +23,14 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://link.msgsndr.com/js/form_embed.js'
+    script.async = true
+    document.body.appendChild(script)
+    return () => { document.body.removeChild(script) }
+  }, [])
+
   const registerSection = (id: string) => (el: HTMLElement | null) => {
     if (el) sectionsRef.current.set(id, el)
   }
@@ -35,34 +43,34 @@ function App() {
 
   const faqs = [
     {
-      q: 'Why are you doing this for free?',
-      a: 'I\'m building a portfolio of ecommerce growth case studies. Your success is my proof of concept. I bring 15+ years of IT and business expertise — this is a strategic investment, not charity.',
+      q: 'Dlaczego robisz to za darmo?',
+      a: 'Buduję portfolio case studies ze wzrostu ecommerce. Twój sukces to mój dowód kompetencji. Wnoszę 15+ lat doświadczenia w IT i biznesie — to strategiczna inwestycja w budowanie mojego portfolio.',
     },
     {
-      q: 'What\'s the catch?',
-      a: 'No catch. You cover your own ad spend (min. 2,000 PLN/month gross). I handle everything else — strategy, setup, optimization, reporting. I only ask that I can use anonymized results as case studies.',
+      q: 'Jaki jest haczyk?',
+      a: 'Żaden. Pokrywasz własny budżet reklamowy (min. 2 000 zł brutto/mies.). Ja zajmuję się całą resztą — strategią, konfiguracją, optymalizacją i raportowaniem. Jedyne, o co proszę, to możliwość wykorzystania zanonimizowanych wyników jako case studies.',
     },
     {
-      q: 'What does "AI-powered" actually mean?',
-      a: 'I use AI tools for audience analysis, creative generation, bid optimization, and performance forecasting. This means faster iteration, smarter targeting, and better ROAS than traditional manual management.',
+      q: 'Co właściwie oznacza "napędzane AI"?',
+      a: 'Korzystam z narzędzi AI do analizy odbiorców, generowania kreacji, optymalizacji stawek i prognozowania wyników. Oznacza to szybsze iteracje, trafniejsze targetowanie i lepszy ROAS niż przy tradycyjnym ręcznym zarządzaniu.',
     },
     {
-      q: 'How long is the commitment?',
-      a: 'Minimum 3 months so we have enough data to optimize properly. After that, you can continue or take over the campaigns yourself — I\'ll hand over everything.',
+      q: 'Jak długo trwa zobowiązanie?',
+      a: 'Minimum 3 miesiące — tyle potrzebujemy, żeby zebrać wystarczającą ilość danych do skutecznej optymalizacji. Po tym czasie możesz kontynuować współpracę lub przejąć kampanie — przekażę Ci wszystko.',
     },
     {
-      q: 'Which platforms do you run ads on?',
-      a: 'Primarily Meta (Facebook & Instagram) and Google Ads. Depending on your product and audience, we might also explore TikTok Ads or Pinterest.',
+      q: 'Na jakich platformach prowadzisz reklamy?',
+      a: 'Głównie Meta (Facebook i Instagram) oraz Google Ads. W zależności od produktu i grupy docelowej możemy też rozważyć TikTok Ads lub Pinterest.',
     },
     {
-      q: 'What if my budget is slightly below 2,000 PLN?',
-      a: 'The 2,000 PLN minimum ensures we have enough data for AI optimization to work effectively. Below that threshold, results become unreliable. If you\'re close, let\'s talk.',
+      q: 'Co jeśli mój budżet jest nieco poniżej 2 000 zł?',
+      a: 'Minimum 2 000 zł zapewnia wystarczającą ilość danych, aby optymalizacja AI działała skutecznie. Poniżej tego progu wyniki stają się niewiarygodne. Jeśli jesteś blisko — porozmawiajmy.',
     },
   ]
 
   return (
     <div className="page">
-      {/* Navigation */}
+      {/* Nawigacja */}
       <nav className="nav">
         <div className="nav-inner">
           <div className="logo">
@@ -70,7 +78,7 @@ function App() {
             <span className="logo-text">growpal</span>
           </div>
           <button className="nav-cta" onClick={scrollToApply}>
-            Apply for free spot
+            Aplikuj o darmowe miejsce
           </button>
         </div>
       </nav>
@@ -80,31 +88,31 @@ function App() {
         <div className="hero-inner">
           <div className="urgency-badge">
             <span className="pulse" />
-            Only {spotsLeft} free spots available
+            Tylko {spotsLeft} darmowe miejsca
           </div>
           <h1 className="hero-title">
-            I'll grow your ecommerce store
+            Rozwinę Twój sklep ecommerce
             <br />
-            <span className="hero-accent">with AI-powered ads.</span>
+            <span className="hero-accent">reklamami napędzanymi AI.</span>
             <br />
-            <span className="hero-free">For free.</span>
+            <span className="hero-free">Za darmo.</span>
           </h1>
           <p className="hero-sub">
-            15+ years in IT. Serial entrepreneur. Now I'm looking for 3 small ecommerce brands
-            to run their paid advertising — no management fee, no contracts, no BS.
-            You just cover the ad spend.
+            15+ lat w IT. Przedsiębiorca z wieloletnim doświadczeniem. Szukam 3 małych marek ecommerce,
+            dla których poprowadzę płatną reklamę — bez opłat za zarządzanie, bez umów, bez ukrytych kosztów.
+            Ty pokrywasz tylko budżet reklamowy.
           </p>
           <div className="hero-actions">
             <button className="btn-primary" onClick={scrollToApply}>
-              Apply now — it's free
+              Aplikuj teraz — to nic nie kosztuje
             </button>
-            <span className="hero-note">Min. ad budget: 2,000 PLN/month</span>
+            <span className="hero-note">Min. budżet reklamowy: 2 000 zł brutto/mies.</span>
           </div>
         </div>
         <div className="hero-gradient" />
       </header>
 
-      {/* Stats Bar */}
+      {/* Pasek statystyk */}
       <section
         className={`stats ${isVisible('stats') ? 'visible' : ''}`}
         id="stats"
@@ -113,152 +121,152 @@ function App() {
         <div className="stats-inner">
           <div className="stat">
             <span className="stat-number">15+</span>
-            <span className="stat-label">Years in IT</span>
+            <span className="stat-label">Lat w IT</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
             <span className="stat-number">3</span>
-            <span className="stat-label">Businesses built</span>
+            <span className="stat-label">Zbudowane firmy</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
             <span className="stat-number">AI</span>
-            <span className="stat-label">Powered optimization</span>
+            <span className="stat-label">Optymalizacja</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <span className="stat-number">0 PLN</span>
-            <span className="stat-label">Management fee</span>
+            <span className="stat-number">0 zł</span>
+            <span className="stat-label">Opłata za zarządzanie</span>
           </div>
         </div>
       </section>
 
-      {/* Problem Section */}
+      {/* Sekcja problemu */}
       <section
         className={`section problem ${isVisible('problem') ? 'visible' : ''}`}
         id="problem"
         ref={registerSection('problem')}
       >
         <div className="section-inner">
-          <h2 className="section-tag">The reality</h2>
-          <h3 className="section-title">You know marketing matters.<br />But it's a minefield.</h3>
+          <h2 className="section-tag">Problem</h2>
+          <h3 className="section-title">Wiesz, że marketing jest kluczowy.<br />Ale to pole minowe.</h3>
           <div className="problem-grid">
             <div className="problem-card">
               <div className="problem-icon">$</div>
-              <h4>Agencies are expensive</h4>
-              <p>Most charge 2,000–5,000 PLN/month just for management — on top of your ad spend. For a small store, that's brutal.</p>
+              <h4>Agencje są drogie</h4>
+              <p>Większość pobiera 2 000–5 000 zł/mies. tylko za zarządzanie — do tego dochodzi budżet reklamowy. Dla małego sklepu to dużo.</p>
             </div>
             <div className="problem-card">
               <div className="problem-icon">?</div>
-              <h4>DIY means guessing</h4>
-              <p>You've tried running ads yourself. The interface is confusing, results are inconsistent, and you're not sure what's working.</p>
+              <h4>Samodzielnie to loteria</h4>
+              <p>Próbowałeś prowadzić reklamy sam. Interfejs jest zagmatwany, wyniki niestabilne i nie wiadomo, co tak naprawdę działa.</p>
             </div>
             <div className="problem-card">
               <div className="problem-icon">~</div>
-              <h4>Time you don't have</h4>
-              <p>You're already handling inventory, shipping, customer service, and everything else. Marketing falls to the bottom of the list.</p>
+              <h4>Czas, którego nie masz</h4>
+              <p>Już zajmujesz się magazynem, wysyłką, obsługą klienta i tysiącem innych rzeczy. Marketing spada na koniec listy.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Offer Section */}
+      {/* Sekcja oferty */}
       <section
         className={`section offer ${isVisible('offer') ? 'visible' : ''}`}
         id="offer"
         ref={registerSection('offer')}
       >
         <div className="section-inner">
-          <h2 className="section-tag">The offer</h2>
-          <h3 className="section-title">Full ad management.<br />Zero management fee.</h3>
+          <h2 className="section-tag">Oferta</h2>
+          <h3 className="section-title">Pełne zarządzanie reklamami.<br />Zero opłat za obsługę.</h3>
           <p className="section-sub">
-            Here's exactly what you get — completely free — when you're selected as one of 3 partner brands.
+            Oto dokładnie co otrzymujesz — całkowicie za darmo — gdy zostaniesz jedną z 3 partnerskich marek.
           </p>
           <div className="offer-grid">
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
               </div>
-              <h4>Ad strategy & research</h4>
-              <p>Deep dive into your niche, competitors, and ideal customer profile using AI-powered audience analysis.</p>
+              <h4>Strategia i analiza reklam</h4>
+              <p>Dogłębna analiza Twojej niszy, konkurencji i profilu idealnego klienta z wykorzystaniem AI.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
               </div>
-              <h4>Campaign setup</h4>
-              <p>Full configuration of Meta Ads & Google Ads — pixel tracking, conversion events, campaign structure.</p>
+              <h4>Konfiguracja kampanii</h4>
+              <p>Pełna konfiguracja Meta Ads i Google Ads — pixel tracking, zdarzenia konwersji, struktura kampanii.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7-7"/></svg>
               </div>
-              <h4>AI creative generation</h4>
-              <p>AI-generated ad copy and creative concepts tailored to your brand — tested and iterated at speed.</p>
+              <h4>Kreacje generowane przez AI</h4>
+              <p>Teksty reklamowe i koncepty kreatywne dopasowane do Twojej marki — testowane i iterowane z dużą prędkością.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
               </div>
-              <h4>Ongoing optimization</h4>
-              <p>Daily monitoring, A/B testing, bid adjustments, and audience refinement to maximize your ROAS.</p>
+              <h4>Ciągła optymalizacja</h4>
+              <p>Codzienny monitoring, testy A/B, dostosowywanie stawek i zawężanie grup odbiorców, by zmaksymalizować ROAS.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
               </div>
-              <h4>Transparent reporting</h4>
-              <p>Weekly performance reports with clear metrics — spend, ROAS, CPA, and actionable next steps.</p>
+              <h4>Przejrzyste raporty</h4>
+              <p>Cotygodniowe raporty wyników z czytelnymi metrykami — wydatki, ROAS, CPA i konkretne kolejne kroki.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
-              <h4>Direct access to me</h4>
-              <p>No account managers or juniors. You work directly with me — 15+ years of experience, no middlemen.</p>
+              <h4>Bezpośredni kontakt ze mną</h4>
+              <p>Żadnych account managerów ani juniorów. Pracujesz bezpośrednio ze mną — 15+ lat doświadczenia, bez pośredników.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Jak to działa */}
       <section
         className={`section how ${isVisible('how') ? 'visible' : ''}`}
         id="how"
         ref={registerSection('how')}
       >
         <div className="section-inner">
-          <h2 className="section-tag">How it works</h2>
-          <h3 className="section-title">From application to results<br />in 3 simple steps.</h3>
+          <h2 className="section-tag">Jak to działa</h2>
+          <h3 className="section-title">Od zgłoszenia do wyników<br />w 3 prostych krokach.</h3>
           <div className="steps">
             <div className="step">
               <div className="step-number">01</div>
               <div className="step-content">
-                <h4>Apply & get selected</h4>
-                <p>Fill out a short application below. I'll review your store, niche, and goals. If we're a good fit, you're in.</p>
+                <h4>Aplikuj i zostań wybrany</h4>
+                <p>Wypełnij krótkie zgłoszenie poniżej. Przejrzę Twój sklep, niszę i cele. Jeśli do siebie pasujemy — zaczynamy.</p>
               </div>
             </div>
             <div className="step-line" />
             <div className="step">
               <div className="step-number">02</div>
               <div className="step-content">
-                <h4>Strategy & launch</h4>
-                <p>I'll audit your current setup, build a tailored ad strategy using AI, and launch your first campaigns within 7 days.</p>
+                <h4>Strategia i start</h4>
+                <p>Zaudytuję Twoją obecną konfigurację, zbuduję dopasowaną strategię reklamową z pomocą AI i uruchomię pierwsze kampanie w ciągu 7 dni.</p>
               </div>
             </div>
             <div className="step-line" />
             <div className="step">
               <div className="step-number">03</div>
               <div className="step-content">
-                <h4>Optimize & grow</h4>
-                <p>Continuous AI-driven optimization. Weekly check-ins. Monthly strategy reviews. Watch your store grow.</p>
+                <h4>Optymalizuj i rozwijaj się</h4>
+                <p>Ciągła optymalizacja napędzana AI. Cotygodniowe check-iny. Miesięczne przeglądy strategii. Patrz, jak Twój sklep rośnie.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About */}
+      {/* O mnie */}
       <section
         className={`section about ${isVisible('about') ? 'visible' : ''}`}
         id="about"
@@ -272,55 +280,55 @@ function App() {
               </div>
             </div>
             <div className="about-text">
-              <h2 className="section-tag">About me</h2>
-              <h3 className="section-title">IT veteran. Entrepreneur.<br />Now your growth partner.</h3>
+              <h2 className="section-tag">O mnie</h2>
+              <h3 className="section-title">Weteran IT. Przedsiębiorca.<br />Teraz Twój partner wzrostu.</h3>
               <p>
-                I've spent over 15 years building and scaling technology — from software engineering
-                to running my own IT businesses. Along the way, I learned a hard truth:
-                <strong> great products don't sell themselves.</strong>
+                Ponad 15 lat spędziłem budując i skalując technologię — od inżynierii oprogramowania
+                po prowadzenie własnych firm IT. Po drodze nauczyłem się trudnej prawdy:
+                <strong>świetne produkty nie sprzedają się same.</strong>
               </p>
               <p>
-                Running my own companies taught me that marketing isn't optional — it's oxygen.
-                I dove deep into growth marketing, paid acquisition, and AI-powered optimization.
-                Now I want to combine my technical background with modern marketing to help small
-                ecommerce brands punch above their weight.
+                Prowadzenie własnych firm uświadomiło mi, że marketing to nie opcja — to tlen.
+                Zanurzyłem się w growth marketingu, płatnej akwizycji i optymalizacji napędzanej AI.
+                Teraz chcę połączyć moje techniczne zaplecze z nowoczesnym marketingiem, żeby pomóc
+                małym markom ecommerce grać ponad swoją wagę.
               </p>
               <p>
-                This isn't a side project or a hobby. I'm building something real — and I need
-                3 brands willing to grow with me.
+                To nie jest projekt poboczny ani hobby. Buduję coś prawdziwego — i potrzebuję
+                3 marek gotowych rosnąć razem ze mną.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Requirements */}
+      {/* Wymagania */}
       <section
         className={`section requirements ${isVisible('requirements') ? 'visible' : ''}`}
         id="requirements"
         ref={registerSection('requirements')}
       >
         <div className="section-inner">
-          <h2 className="section-tag">Requirements</h2>
-          <h3 className="section-title">Is this right for you?</h3>
+          <h2 className="section-tag">Wymagania</h2>
+          <h3 className="section-title">Czy to jest dla Ciebie?</h3>
           <div className="req-columns">
             <div className="req-col req-yes">
-              <h4>You're a good fit if:</h4>
+              <h4>Pasujesz, jeśli:</h4>
               <ul>
-                <li>You run a small ecommerce store (any niche)</li>
-                <li>You can invest min. 2,000 PLN/month in ad spend</li>
-                <li>You're willing to commit for at least 3 months</li>
-                <li>You want to grow but lack marketing expertise</li>
-                <li>You're open to AI-driven approaches</li>
+                <li>Prowadzisz mały sklep ecommerce (dowolna nisza)</li>
+                <li>Możesz zainwestować min. 2 000 zł brutto/mies. w budżet reklamowy</li>
+                <li>Jesteś gotowy na współpracę przez minimum 3 miesiące</li>
+                <li>Chcesz rosnąć, ale brakuje Ci wiedzy marketingowej</li>
+                <li>Jesteś otwarty na podejście oparte o AI</li>
               </ul>
             </div>
             <div className="req-col req-no">
-              <h4>This isn't for you if:</h4>
+              <h4>To nie jest dla Ciebie, jeśli:</h4>
               <ul>
-                <li>Your store isn't live or has no products listed</li>
-                <li>You can't commit to the minimum ad budget</li>
-                <li>You want instant overnight results</li>
-                <li>You're not willing to share store access/data</li>
+                <li>Twój sklep nie jest jeszcze uruchomiony lub nie ma produktów</li>
+                <li>Nie możesz zobowiązać się do minimalnego budżetu reklamowego</li>
+                <li>Oczekujesz natychmiastowych wyników z dnia na dzień</li>
+                <li>Nie chcesz udostępnić dostępu do sklepu i danych</li>
               </ul>
             </div>
           </div>
@@ -335,7 +343,7 @@ function App() {
       >
         <div className="section-inner">
           <h2 className="section-tag">FAQ</h2>
-          <h3 className="section-title">Questions you probably have.</h3>
+          <h3 className="section-title">Pytania, które pewnie masz</h3>
           <div className="faq-list">
             {faqs.map((faq, i) => (
               <div
@@ -359,7 +367,7 @@ function App() {
         </div>
       </section>
 
-      {/* CTA / Apply */}
+      {/* CTA / Aplikuj */}
       <section
         className={`section cta ${isVisible('apply') ? 'visible' : ''}`}
         id="apply"
@@ -369,34 +377,46 @@ function App() {
           <div className="cta-box">
             <div className="urgency-badge">
               <span className="pulse" />
-              Only {spotsLeft} spots remaining
+              Tylko {spotsLeft} darmowe miejsca
             </div>
-            <h3 className="cta-title">Ready to grow your store?</h3>
+            <h3 className="cta-title">Gotowy, żeby rozwinąć swój sklep?</h3>
             <p className="cta-sub">
-              Drop me a message with your store URL and a few words about your brand.
-              I'll review every application personally and get back to you within 48 hours.
+              Wypełnij formularz poniżej. Każde zgłoszenie przeglądam osobiście
+              i odpowiadam w ciągu 48 godzin.
             </p>
-            <a
-              href="mailto:hello@growpal.pl?subject=GrowPal%20Application&body=Hi!%0A%0AMy%20store%20URL:%20%0AMy%20niche:%20%0AMonthly%20revenue%20(approx):%20%0AWhat%20I%20want%20to%20achieve:%20"
-              className="btn-primary btn-large"
-            >
-              Apply now — send me a message
-            </a>
+            <div className="ghl-form-wrapper">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/pFJvyAoeJmYAqQkV48Ak"
+                id="inline-pFJvyAoeJmYAqQkV48Ak"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="GrowPal"
+                data-height="874"
+                data-layout-iframe-id="inline-pFJvyAoeJmYAqQkV48Ak"
+                data-form-id="pFJvyAoeJmYAqQkV48Ak"
+                title="Formularz zgłoszeniowy GrowPal"
+              />
+            </div>
             <p className="cta-note">
-              No commitment until we both agree it's a fit. Your data stays confidential.
+              Żadnych zobowiązań, dopóki oboje nie uznamy, że do siebie pasujemy. Twoje dane pozostają poufne.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Stopka */}
       <footer className="footer">
         <div className="footer-inner">
           <div className="logo">
             <span className="logo-icon">G</span>
             <span className="logo-text">growpal</span>
           </div>
-          <p className="footer-copy">&copy; {new Date().getFullYear()} growpal. AI-powered growth for small ecommerce.</p>
+          <p className="footer-copy">&copy; {new Date().getFullYear()} growpal. Wzrost napędzany AI dla małego ecommerce.</p>
         </div>
       </footer>
     </div>
