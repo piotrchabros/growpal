@@ -80,6 +80,13 @@ body {
   display: block;
 }
 
+.logo-text {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
 .nav-cta {
   background: transparent;
   border: 1px solid var(--border);
@@ -112,7 +119,7 @@ body {
 }
 
 .hero-inner {
-  max-width: 820px;
+  max-width: 1050px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -200,7 +207,6 @@ body {
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--text-muted);
-  max-width: 600px;
   margin: 0 auto 40px;
   line-height: 1.7;
 }
@@ -531,19 +537,12 @@ body {
   flex-shrink: 0;
 }
 
-.about-photo-placeholder {
+.about-photo-img {
   width: 220px;
   height: 220px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
   border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 56px;
-  font-weight: 900;
-  color: var(--accent);
-  letter-spacing: -0.03em;
+  object-fit: cover;
 }
 
 .about-text {
@@ -564,6 +563,43 @@ body {
 .about-text strong {
   color: var(--text);
   font-weight: 600;
+}
+
+.about-text a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.about-text a:hover {
+  opacity: 0.8;
+}
+
+.about-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.about-linkedin:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-glow);
+  opacity: 1;
+}
+
+.about-linkedin svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 /* =================== REQUIREMENTS =================== */
@@ -787,11 +823,109 @@ body {
   position: relative;
 }
 
+/* =================== URGENCY STRIPS =================== */
+
+.urgency-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(110, 231, 183, 0.08), rgba(110, 231, 183, 0.04));
+  border-top: 1px solid rgba(110, 231, 183, 0.15);
+  border-bottom: 1px solid rgba(110, 231, 183, 0.15);
+  font-size: 15px;
+  color: var(--text-muted);
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.urgency-strip strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.urgency-strip .pulse {
+  width: 6px;
+  height: 6px;
+}
+
+.urgency-strip-cta {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.urgency-strip-cta:hover {
+  background: var(--accent-glow);
+}
+
+/* =================== STICKY URGENCY BAR =================== */
+
+.sticky-urgency {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: rgba(10, 10, 11, 0.92);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-top: 1px solid rgba(110, 231, 183, 0.2);
+  padding: 12px 24px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-urgency.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.sticky-urgency-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.sticky-urgency-inner span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sticky-urgency-inner strong {
+  color: var(--accent);
+}
+
+.sticky-urgency-inner .pulse {
+  width: 6px;
+  height: 6px;
+}
+
+.btn-small {
+  padding: 8px 24px;
+  font-size: 13px;
+}
+
 /* =================== FOOTER =================== */
 
 .footer {
   border-top: 1px solid var(--border-subtle);
-  padding: 32px 24px;
+  padding: 32px 24px 80px;
   background: var(--bg);
 }
 
@@ -803,9 +937,112 @@ body {
   justify-content: space-between;
 }
 
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-link {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--accent);
+}
+
 .footer-copy {
   font-size: 13px;
   color: var(--text-dim);
+}
+
+/* =================== LEGAL PAGES =================== */
+
+.legal-page {
+  max-width: 100%;
+  padding: 120px 24px 80px;
+}
+
+.legal-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal-page h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.legal-updated {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 48px;
+}
+
+.legal-page section {
+  margin-bottom: 40px;
+}
+
+.legal-page h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.legal-page h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.legal-page p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.legal-page ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+.legal-page li {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  padding-left: 24px;
+  position: relative;
+}
+
+.legal-page li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.legal-page a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.legal-page a:hover {
+  opacity: 0.8;
 }
 
 /* =================== RESPONSIVE =================== */
@@ -872,10 +1109,25 @@ body {
     text-align: center;
   }
 
-  .about-photo-placeholder {
+  .legal-page {
+    padding: 100px 20px 60px;
+  }
+
+  .urgency-strip {
+    font-size: 13px;
+    gap: 8px;
+    padding: 14px 20px;
+  }
+
+  .sticky-urgency-inner {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .about-photo-img {
     width: 160px;
     height: 160px;
-    font-size: 42px;
   }
 
   .step {

@@ -1,9 +1,22 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Terms from './pages/Terms'
+
+type Page = 'landing' | 'privacy' | 'terms'
+
+function getPageFromHash(): Page {
+  const hash = window.location.hash
+  if (hash === '#polityka-prywatnosci') return 'privacy'
+  if (hash === '#regulamin') return 'terms'
+  return 'landing'
+}
 
 function App() {
+  const [page, setPage] = useState<Page>(getPageFromHash)
   const [spotsLeft] = useState(3)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showStickyBar, setShowStickyBar] = useState(false)
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
   const sectionsRef = useRef<Map<string, HTMLElement>>(new Map())
 
@@ -21,6 +34,23 @@ function App() {
 
     sectionsRef.current.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowStickyBar(window.scrollY > 600)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const onHashChange = () => {
+      setPage(getPageFromHash())
+      window.scrollTo(0, 0)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
 
   useEffect(() => {
@@ -68,6 +98,9 @@ function App() {
     },
   ]
 
+  if (page === 'privacy') return <PrivacyPolicy />
+  if (page === 'terms') return <Terms />
+
   return (
     <div className="page">
       {/* Nawigacja */}
@@ -75,6 +108,7 @@ function App() {
         <div className="nav-inner">
           <div className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
+            <span className="logo-text">GrowPal</span>
           </div>
           <button className="nav-cta" onClick={scrollToApply}>
             Aplikuj o darmowe miejsce
@@ -124,7 +158,7 @@ function App() {
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <span className="stat-number">3</span>
+            <span className="stat-number">6</span>
             <span className="stat-label">Zbudowane firmy</span>
           </div>
           <div className="stat-divider" />
@@ -168,6 +202,13 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Urgency banner */}
+      <div className="urgency-strip">
+        <span className="pulse" />
+        Zostały tylko <strong>{spotsLeft} miejsca</strong> — nie czekaj, aż będzie za późno.
+        <button className="urgency-strip-cta" onClick={scrollToApply}>Aplikuj teraz</button>
+      </div>
 
       {/* Sekcja oferty */}
       <section
@@ -265,6 +306,13 @@ function App() {
         </div>
       </section>
 
+      {/* Urgency banner */}
+      <div className="urgency-strip">
+        <span className="pulse" />
+        Liczba miejsc ograniczona do <strong>{spotsLeft} firm</strong> — zgłoś się, zanim ktoś Cię wyprzedzi.
+        <button className="urgency-strip-cta" onClick={scrollToApply}>Zarezerwuj miejsce</button>
+      </div>
+
       {/* O mnie */}
       <section
         className={`section about ${isVisible('about') ? 'visible' : ''}`}
@@ -274,28 +322,32 @@ function App() {
         <div className="section-inner">
           <div className="about-layout">
             <div className="about-photo">
-              <div className="about-photo-placeholder">
-                <span>PC</span>
-              </div>
+              <img src="/piotr_chabros.png" alt="Piotr Chabros" className="about-photo-img" />
             </div>
             <div className="about-text">
               <h2 className="section-tag">O mnie</h2>
               <h3 className="section-title">Weteran IT. Przedsiębiorca.<br />Teraz Twój partner wzrostu.</h3>
               <p>
-                Ponad 15 lat spędziłem budując i skalując technologię — od inżynierii oprogramowania
-                po prowadzenie własnych firm IT. Po drodze nauczyłem się trudnej prawdy:
-                <strong>świetne produkty nie sprzedają się same.</strong>
+                Mam ponad 15 lat doświadczenia w IT jako full-stack web developer i jestem właścicielem
+                ponad 6 firm. Wszystkie skupiają się wokół ecommerce — m.in.{' '}
+                <a href="https://bespokesoft.pl" target="_blank" rel="noopener noreferrer">BespokeSoft</a> (software house),{' '}
+                <a href="https://sitespector.app" target="_blank" rel="noopener noreferrer">SiteSpector</a> (SaaS do audytów stron i sklepów internetowych),{' '}
+                <a href="https://growgpt.app" target="_blank" rel="noopener noreferrer">GrowGPT</a> (SaaS zwiększający konwersję w sklepach) oraz{' '}
+                <a href="https://growshop.ai" target="_blank" rel="noopener noreferrer">GrowShop</a> (agencja marketingowa, leadgen, AI i consulting dla ecommerce).
               </p>
               <p>
-                Prowadzenie własnych firm uświadomiło mi, że marketing to nie opcja — to tlen.
-                Zanurzyłem się w growth marketingu, płatnej akwizycji i optymalizacji napędzanej AI.
-                Teraz chcę połączyć moje techniczne zaplecze z nowoczesnym marketingiem, żeby pomóc
-                małym markom ecommerce grać ponad swoją wagę.
+                Właśnie dlatego, że cały mój ekosystem biznesowy kręci się wokół ecommerce,
+                szukam marek, którym mogę pomóc rosnąć — budując jednocześnie portfolio case studies
+                dla mojej agencji marketingowej. Twój sukces to mój dowód kompetencji.
               </p>
               <p>
-                To nie jest projekt poboczny ani hobby. Buduję coś prawdziwego — i potrzebuję
-                3 marek gotowych rosnąć razem ze mną.
+                To nie jest projekt poboczny ani hobby. Łączę 15+ lat doświadczenia technicznego
+                z nowoczesnym marketingiem napędzanym AI — i potrzebuję 3 marek gotowych rosnąć razem ze mną.
               </p>
+              <a href="https://www.linkedin.com/in/pchabros/" target="_blank" rel="noopener noreferrer" className="about-linkedin">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                Mój profil LinkedIn
+              </a>
             </div>
           </div>
         </div>
@@ -366,6 +418,13 @@ function App() {
         </div>
       </section>
 
+      {/* Urgency banner */}
+      <div className="urgency-strip">
+        <span className="pulse" />
+        Przyjmuję tylko <strong>{spotsLeft} sklepy</strong> — potem program zostaje zamknięty.
+        <button className="urgency-strip-cta" onClick={scrollToApply}>Aplikuj teraz</button>
+      </div>
+
       {/* CTA / Aplikuj */}
       <section
         className={`section cta ${isVisible('apply') ? 'visible' : ''}`}
@@ -408,13 +467,31 @@ function App() {
         </div>
       </section>
 
+      {/* Sticky urgency bar */}
+      <div className={`sticky-urgency ${showStickyBar ? 'visible' : ''}`}>
+        <div className="sticky-urgency-inner">
+          <span>
+            <span className="pulse" />
+            Tylko <strong>{spotsLeft} darmowe miejsca</strong> — nie zwlekaj!
+          </span>
+          <button className="btn-primary btn-small" onClick={scrollToApply}>
+            Aplikuj teraz
+          </button>
+        </div>
+      </div>
+
       {/* Stopka */}
       <footer className="footer">
         <div className="footer-inner">
           <div className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
+            <span className="logo-text">growpal</span>
           </div>
-          <p className="footer-copy">&copy; {new Date().getFullYear()} growpal. Wzrost napędzany AI dla małego ecommerce.</p>
+          <div className="footer-links">
+            <a href="#polityka-prywatnosci" className="footer-link">Polityka Prywatności</a>
+            <a href="#regulamin" className="footer-link">Regulamin</a>
+          </div>
+          <p className="footer-copy">&copy; {new Date().getFullYear()} GrowPal. Wzrost napędzany AI dla małego ecommerce.</p>
         </div>
       </footer>
     </div>
