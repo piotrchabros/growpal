@@ -73,28 +73,28 @@ function App() {
 
   const faqs = [
     {
-      q: 'Dlaczego robisz to za darmo?',
-      a: 'Buduję portfolio case studies ze wzrostu ecommerce. Twój sukces to mój dowód kompetencji. Wnoszę 15+ lat doświadczenia w IT i biznesie — to strategiczna inwestycja w budowanie mojego portfolio.',
+      q: 'Czym dokładnie jest GrowPal Sprint?',
+      a: 'GrowPal Sprint to 3-miesięczny program, w którym prowadzę pełne zarządzanie reklamami dla Twojego sklepu ecommerce. Dostajesz analizę AI, wiele kreacji reklamowych, cotygodniowe raporty i ciągłą optymalizację — za darmo. Jedyny koszt po Twojej stronie to budżet reklamowy (min. 2 000 zł/mies.).',
+    },
+    {
+      q: 'Dlaczego Sprint jest za darmo?',
+      a: 'Buduję portfolio case studies ze wzrostu ecommerce. Twój sukces to mój dowód kompetencji. Wnoszę 15+ lat doświadczenia w IT i biznesie — Sprint to strategiczna inwestycja w budowanie mojego portfolio.',
     },
     {
       q: 'Jaki jest haczyk?',
-      a: 'Żaden. Pokrywasz własny budżet reklamowy (min. 2 000 zł brutto/mies.). Ja zajmuję się całą resztą — strategią, konfiguracją, optymalizacją i raportowaniem. Jedyne, o co proszę, to możliwość wykorzystania zanonimizowanych wyników jako case studies.',
+      a: 'Żaden. Pokrywasz własny budżet reklamowy (min. 2 000 zł brutto/mies.). Ja zajmuję się całą resztą — strategią, kreacjami, optymalizacją i cotygodniowymi raportami. Jedyne, o co proszę, to możliwość wykorzystania zanonimizowanych wyników jako case studies.',
     },
     {
-      q: 'Co właściwie oznacza "napędzane AI"?',
-      a: 'Korzystam z narzędzi AI do analizy odbiorców, generowania kreacji, optymalizacji stawek i prognozowania wyników. Oznacza to szybsze iteracje, trafniejsze targetowanie i lepszy ROAS niż przy tradycyjnym ręcznym zarządzaniu.',
+      q: 'Co dostaję w ramach Sprintu?',
+      a: 'Przez 3 miesiące: analizę reklam z AI, konfigurację kampanii, wiele wariantów kreacji reklamowych, ciągłą optymalizację, cotygodniowe raporty z metrykami i bezpośredni kontakt ze mną. Wszystko bez opłat za zarządzanie.',
     },
     {
-      q: 'Jak długo trwa zobowiązanie?',
-      a: 'Minimum 3 miesiące — tyle potrzebujemy, żeby zebrać wystarczającą ilość danych do skutecznej optymalizacji. Po tym czasie możesz kontynuować współpracę lub przejąć kampanie — przekażę Ci wszystko.',
-    },
-    {
-      q: 'Na jakich platformach prowadzisz reklamy?',
-      a: 'Głównie Meta (Facebook i Instagram) oraz Google Ads. W zależności od produktu i grupy docelowej możemy też rozważyć TikTok Ads lub Pinterest.',
+      q: 'Co dzieje się po 3 miesiącach?',
+      a: 'Po zakończeniu Sprintu możesz kontynuować współpracę lub przejąć kampanie — przekażę Ci wszystko. Dostajesz pełny raport końcowy z wynikami i rekomendacjami na dalszy rozwój.',
     },
     {
       q: 'Co jeśli mój budżet jest nieco poniżej 2 000 zł?',
-      a: 'Minimum 2 000 zł zapewnia wystarczającą ilość danych, aby optymalizacja AI działała skutecznie. Poniżej tego progu wyniki stają się niewiarygodne. Jeśli jesteś blisko — porozmawiajmy.',
+      a: 'Minimum 2 000 zł zapewnia wystarczającą ilość danych, aby analiza AI i optymalizacja działały skutecznie. Poniżej tego progu wyniki stają się niewiarygodne. Jeśli jesteś blisko — porozmawiajmy.',
     },
   ]
 
@@ -111,7 +111,7 @@ function App() {
             <span className="logo-text">GrowPal</span>
           </div>
           <button className="nav-cta" onClick={scrollToApply}>
-            Aplikuj o darmowe miejsce
+            Aplikuj do GrowPal Sprint
           </button>
         </div>
       </nav>
@@ -121,23 +121,22 @@ function App() {
         <div className="hero-inner">
           <div className="urgency-badge">
             <span className="pulse" />
-            Tylko {spotsLeft} darmowe miejsca
+            Tylko {spotsLeft} miejsca w GrowPal Sprint
           </div>
           <h1 className="hero-title">
-            Rozwinę Twój sklep ecommerce
+            GrowPal Sprint:
             <br />
-            <span className="hero-accent">reklamami napędzanymi AI.</span>
+            <span className="hero-accent">3 miesiące wzrostu Twojego ecommerce.</span>
             <br />
             <span className="hero-free">Za darmo.</span>
           </h1>
           <p className="hero-sub">
-            15+ lat w IT. Przedsiębiorca z wieloletnim doświadczeniem. Szukam 3 małych marek ecommerce,
-            dla których poprowadzę płatną reklamę — bez opłat za zarządzanie, bez umów, bez ukrytych kosztów.
-            Ty pokrywasz tylko budżet reklamowy.
+            3-miesięczny program reklamowy dla małych marek ecommerce. Kreacje reklamowe, analiza AI,
+            cotygodniowe raporty — zero opłat za zarządzanie. Ty pokrywasz tylko budżet reklamowy (min. 2 000 zł/mies.).
           </p>
           <div className="hero-actions">
             <button className="btn-primary" onClick={scrollToApply}>
-              Aplikuj teraz — to nic nie kosztuje
+              Aplikuj do GrowPal Sprint
             </button>
             <span className="hero-note">Min. budżet reklamowy: 2 000 zł brutto/mies.</span>
           </div>
@@ -153,18 +152,18 @@ function App() {
       >
         <div className="stats-inner">
           <div className="stat">
-            <span className="stat-number">15+</span>
-            <span className="stat-label">Lat w IT</span>
+            <span className="stat-number">3 mies.</span>
+            <span className="stat-label">Czas trwania Sprintu</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
-            <span className="stat-number">6</span>
-            <span className="stat-label">Zbudowane firmy</span>
+            <span className="stat-number">Co tydzień</span>
+            <span className="stat-label">Raporty wyników</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
             <span className="stat-number">AI</span>
-            <span className="stat-label">Optymalizacja</span>
+            <span className="stat-label">Analiza reklam</span>
           </div>
           <div className="stat-divider" />
           <div className="stat">
@@ -206,8 +205,8 @@ function App() {
       {/* Urgency banner */}
       <div className="urgency-strip">
         <span className="pulse" />
-        Zostały tylko <strong>{spotsLeft} miejsca</strong> — nie czekaj, aż będzie za późno.
-        <button className="urgency-strip-cta" onClick={scrollToApply}>Aplikuj teraz</button>
+        Zostały tylko <strong>{spotsLeft} miejsca</strong> w GrowPal Sprint — nie czekaj, aż będzie za późno.
+        <button className="urgency-strip-cta" onClick={scrollToApply}>Aplikuj do Sprintu</button>
       </div>
 
       {/* Sekcja oferty */}
@@ -217,18 +216,18 @@ function App() {
         ref={registerSection('offer')}
       >
         <div className="section-inner">
-          <h2 className="section-tag">Oferta</h2>
-          <h3 className="section-title">Pełne zarządzanie reklamami.<br />Zero opłat za obsługę.</h3>
+          <h2 className="section-tag">Co zawiera Sprint</h2>
+          <h3 className="section-title">3 miesiące pełnego zarządzania reklamami.<br />Zero opłat za obsługę.</h3>
           <p className="section-sub">
-            Oto dokładnie co otrzymujesz — całkowicie za darmo — gdy zostaniesz jedną z 3 partnerskich marek.
+            Oto co dostajesz w ramach GrowPal Sprint — całkowicie za darmo przez 3 miesiące.
           </p>
           <div className="offer-grid">
             <div className="offer-card">
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
               </div>
-              <h4>Strategia i analiza reklam</h4>
-              <p>Dogłębna analiza Twojej niszy, konkurencji i profilu idealnego klienta z wykorzystaniem AI.</p>
+              <h4>Analiza reklam z AI</h4>
+              <p>Dogłębna analiza Twojej niszy, konkurencji i profilu idealnego klienta z wykorzystaniem narzędzi AI.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
@@ -241,8 +240,8 @@ function App() {
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l7-7"/></svg>
               </div>
-              <h4>Kreacje generowane przez AI</h4>
-              <p>Teksty reklamowe i koncepty kreatywne dopasowane do Twojej marki — testowane i iterowane z dużą prędkością.</p>
+              <h4>Wiele kreacji reklamowych</h4>
+              <p>Teksty reklamowe i koncepty kreatywne dopasowane do Twojej marki — wiele wariantów testowanych i iterowanych z dużą prędkością.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
@@ -255,8 +254,8 @@ function App() {
               <div className="offer-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
               </div>
-              <h4>Przejrzyste raporty</h4>
-              <p>Cotygodniowe raporty wyników z czytelnymi metrykami — wydatki, ROAS, CPA i konkretne kolejne kroki.</p>
+              <h4>Cotygodniowe raporty</h4>
+              <p>Co tydzień otrzymujesz raport z czytelnymi metrykami — wydatki, ROAS, CPA i konkretne kolejne kroki.</p>
             </div>
             <div className="offer-card">
               <div className="offer-icon">
@@ -276,30 +275,30 @@ function App() {
         ref={registerSection('how')}
       >
         <div className="section-inner">
-          <h2 className="section-tag">Jak to działa</h2>
-          <h3 className="section-title">Od zgłoszenia do wyników<br />w 3 prostych krokach.</h3>
+          <h2 className="section-tag">Jak działa Sprint</h2>
+          <h3 className="section-title">3 miesiące od zgłoszenia do wyników.</h3>
           <div className="steps">
             <div className="step">
               <div className="step-number">01</div>
               <div className="step-content">
-                <h4>Aplikuj i zostań wybrany</h4>
-                <p>Wypełnij krótkie zgłoszenie poniżej. Przejrzę Twój sklep, niszę i cele. Jeśli do siebie pasujemy — zaczynamy.</p>
+                <h4>Aplikuj do Sprintu</h4>
+                <p>Wypełnij krótkie zgłoszenie poniżej. Przejrzę Twój sklep, niszę i cele. Jeśli do siebie pasujemy — ruszamy ze Sprintem.</p>
               </div>
             </div>
             <div className="step-line" />
             <div className="step">
               <div className="step-number">02</div>
               <div className="step-content">
-                <h4>Strategia i start</h4>
-                <p>Zaudytuję Twoją obecną konfigurację, zbuduję dopasowaną strategię reklamową z pomocą AI i uruchomię pierwsze kampanie w ciągu 7 dni.</p>
+                <h4>Tydzień 1: strategia i start kampanii</h4>
+                <p>Audyt konfiguracji, strategia reklamowa z AI, pierwsze kreacje i uruchomienie kampanii w ciągu 7 dni.</p>
               </div>
             </div>
             <div className="step-line" />
             <div className="step">
               <div className="step-number">03</div>
               <div className="step-content">
-                <h4>Optymalizuj i rozwijaj się</h4>
-                <p>Ciągła optymalizacja napędzana AI. Cotygodniowe check-iny. Miesięczne przeglądy strategii. Patrz, jak Twój sklep rośnie.</p>
+                <h4>3 miesiące: optymalizacja i raporty</h4>
+                <p>Ciągła optymalizacja napędzana AI, nowe kreacje, cotygodniowe raporty z metrykami. Po 3 miesiącach — pełny przegląd wyników i dalsze kroki.</p>
               </div>
             </div>
           </div>
@@ -309,8 +308,8 @@ function App() {
       {/* Urgency banner */}
       <div className="urgency-strip">
         <span className="pulse" />
-        Liczba miejsc ograniczona do <strong>{spotsLeft} firm</strong> — zgłoś się, zanim ktoś Cię wyprzedzi.
-        <button className="urgency-strip-cta" onClick={scrollToApply}>Zarezerwuj miejsce</button>
+        Liczba miejsc w Sprincie ograniczona do <strong>{spotsLeft} firm</strong> — zgłoś się, zanim ktoś Cię wyprzedzi.
+        <button className="urgency-strip-cta" onClick={scrollToApply}>Zarezerwuj miejsce w Sprincie</button>
       </div>
 
       {/* O mnie */}
@@ -342,7 +341,7 @@ function App() {
               </p>
               <p>
                 To nie jest projekt poboczny ani hobby. Łączę 15+ lat doświadczenia technicznego
-                z nowoczesnym marketingiem napędzanym AI — i potrzebuję 3 marek gotowych rosnąć razem ze mną.
+                z nowoczesnym marketingiem napędzanym AI — i szukam 3 marek na 3-miesięczny GrowPal Sprint.
               </p>
               <a href="https://www.linkedin.com/in/pchabros/" target="_blank" rel="noopener noreferrer" className="about-linkedin">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -361,23 +360,23 @@ function App() {
       >
         <div className="section-inner">
           <h2 className="section-tag">Wymagania</h2>
-          <h3 className="section-title">Czy to jest dla Ciebie?</h3>
+          <h3 className="section-title">Czy GrowPal Sprint jest dla Ciebie?</h3>
           <div className="req-columns">
             <div className="req-col req-yes">
-              <h4>Pasujesz, jeśli:</h4>
+              <h4>Sprint jest dla Ciebie, jeśli:</h4>
               <ul>
                 <li>Prowadzisz mały sklep ecommerce (dowolna nisza)</li>
-                <li>Możesz zainwestować min. 2 000 zł brutto/mies. w budżet reklamowy</li>
-                <li>Jesteś gotowy na współpracę przez minimum 3 miesiące</li>
+                <li>Masz min. 2 000 zł brutto/mies. na budżet reklamowy</li>
+                <li>Możesz zaangażować się na pełne 3 miesiące Sprintu</li>
                 <li>Chcesz rosnąć, ale brakuje Ci wiedzy marketingowej</li>
                 <li>Jesteś otwarty na podejście oparte o AI</li>
               </ul>
             </div>
             <div className="req-col req-no">
-              <h4>To nie jest dla Ciebie, jeśli:</h4>
+              <h4>Sprint nie jest dla Ciebie, jeśli:</h4>
               <ul>
                 <li>Twój sklep nie jest jeszcze uruchomiony lub nie ma produktów</li>
-                <li>Nie możesz zobowiązać się do minimalnego budżetu reklamowego</li>
+                <li>Nie dysponujesz minimalnym budżetem reklamowym (2 000 zł/mies.)</li>
                 <li>Oczekujesz natychmiastowych wyników z dnia na dzień</li>
                 <li>Nie chcesz udostępnić dostępu do sklepu i danych</li>
               </ul>
@@ -421,8 +420,8 @@ function App() {
       {/* Urgency banner */}
       <div className="urgency-strip">
         <span className="pulse" />
-        Przyjmuję tylko <strong>{spotsLeft} sklepy</strong> — potem program zostaje zamknięty.
-        <button className="urgency-strip-cta" onClick={scrollToApply}>Aplikuj teraz</button>
+        Przyjmuję tylko <strong>{spotsLeft} sklepy</strong> do tego Sprintu — potem rekrutacja zostaje zamknięta.
+        <button className="urgency-strip-cta" onClick={scrollToApply}>Aplikuj do Sprintu</button>
       </div>
 
       {/* CTA / Aplikuj */}
@@ -435,9 +434,9 @@ function App() {
           <div className="cta-box">
             <div className="urgency-badge">
               <span className="pulse" />
-              Tylko {spotsLeft} darmowe miejsca
+              Tylko {spotsLeft} miejsca w GrowPal Sprint
             </div>
-            <h3 className="cta-title">Gotowy, żeby rozwinąć swój sklep?</h3>
+            <h3 className="cta-title">Aplikuj do GrowPal Sprint</h3>
             <p className="cta-sub">
               Wypełnij formularz poniżej. Każde zgłoszenie przeglądam osobiście
               i odpowiadam w ciągu 48 godzin.
@@ -457,11 +456,11 @@ function App() {
                 data-height="874"
                 data-layout-iframe-id="inline-pFJvyAoeJmYAqQkV48Ak"
                 data-form-id="pFJvyAoeJmYAqQkV48Ak"
-                title="Formularz zgłoszeniowy GrowPal"
+                title="Formularz zgłoszeniowy GrowPal Sprint"
               />
             </div>
             <p className="cta-note">
-              Żadnych zobowiązań, dopóki oboje nie uznamy, że do siebie pasujemy. Twoje dane pozostają poufne.
+              Żadnych zobowiązań, dopóki oboje nie uznamy, że Sprint ma sens. Twoje dane pozostają poufne.
             </p>
           </div>
         </div>
@@ -472,10 +471,10 @@ function App() {
         <div className="sticky-urgency-inner">
           <span>
             <span className="pulse" />
-            Tylko <strong>{spotsLeft} darmowe miejsca</strong> — nie zwlekaj!
+            Tylko <strong>{spotsLeft} miejsca</strong> w GrowPal Sprint — nie zwlekaj!
           </span>
           <button className="btn-primary btn-small" onClick={scrollToApply}>
-            Aplikuj teraz
+            Aplikuj do Sprintu
           </button>
         </div>
       </div>
@@ -491,7 +490,7 @@ function App() {
             <a href="#polityka-prywatnosci" className="footer-link">Polityka Prywatności</a>
             <a href="#regulamin" className="footer-link">Regulamin</a>
           </div>
-          <p className="footer-copy">&copy; {new Date().getFullYear()} GrowPal. Wzrost napędzany AI dla małego ecommerce.</p>
+          <p className="footer-copy">&copy; {new Date().getFullYear()} GrowPal. 3-miesięczny Sprint wzrostu dla ecommerce.</p>
         </div>
       </footer>
     </div>
