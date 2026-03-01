@@ -3,11 +3,11 @@ function PrivacyPolicy() {
     <div className="page">
       <nav className="nav">
         <div className="nav-inner">
-          <a href="#" className="logo">
+          <a href="/" className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
             <span className="logo-text">GrowPal</span>
           </a>
-          <a href="#" className="nav-cta">
+          <a href="/" className="nav-cta">
             Wróć na stronę główną
           </a>
         </div>
@@ -145,7 +145,7 @@ function PrivacyPolicy() {
 
       <footer className="footer">
         <div className="footer-inner">
-          <a href="#" className="logo">
+          <a href="/" className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
             <span className="logo-text">GrowPal</span>
           </a>

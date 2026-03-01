@@ -11,6 +11,7 @@ function getPageFromHash(): Page {
   if (hash === '#polityka-prywatnosci') return 'privacy'
   if (hash === '#regulamin') return 'terms'
   if (hash === '#dziekujemy') return 'thankyou'
+  if (hash === '#' || hash === '') return 'landing'
   return 'landing'
 }
 
