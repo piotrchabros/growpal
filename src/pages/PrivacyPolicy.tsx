@@ -147,7 +147,7 @@ function PrivacyPolicy() {
         <div className="footer-inner">
           <a href="#" className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
-            <span className="logo-text">growpal</span>
+            <span className="logo-text">GrowPal</span>
           </a>
           <div className="footer-links">
             <a href="#polityka-prywatnosci" className="footer-link">Polityka Prywatności</a>

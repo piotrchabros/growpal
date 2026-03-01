@@ -26,6 +26,9 @@ function ThankYou() {
             Twoje zgłoszenie do GrowPal Sprint zostało przesłane. Przejrzę je osobiście
             i odezwę się w ciągu <strong>48 godzin</strong>.
           </p>
+          <p className="thankyou-sub">
+            <strong>Na Twój adres email wysłaliśmy potwierdzenie z dodatkowymi informacjami.</strong> Jeśli nie widzisz wiadomości, sprawdź folder spam/wiadomości-śmieci.
+          </p>
           <div className="thankyou-steps">
             <h2>Co dalej?</h2>
             <ol>
@@ -44,7 +47,7 @@ function ThankYou() {
         <div className="footer-inner">
           <a href="#" className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
-            <span className="logo-text">growpal</span>
+            <span className="logo-text">GrowPal</span>
           </a>
           <div className="footer-links">
             <a href="#polityka-prywatnosci" className="footer-link">Polityka Prywatności</a>

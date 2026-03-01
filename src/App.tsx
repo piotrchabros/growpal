@@ -487,7 +487,7 @@ function App() {
         <div className="footer-inner">
           <div className="logo">
             <img src="/logo.png" alt="growpal" className="logo-img" />
-            <span className="logo-text">growpal</span>
+            <span className="logo-text">GrowPal</span>
           </div>
           <div className="footer-links">
             <a href="#polityka-prywatnosci" className="footer-link">Polityka Prywatności</a>
