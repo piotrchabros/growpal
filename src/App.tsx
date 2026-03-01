@@ -2,13 +2,15 @@ import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Terms from './pages/Terms'
+import ThankYou from './pages/ThankYou'
 
-type Page = 'landing' | 'privacy' | 'terms'
+type Page = 'landing' | 'privacy' | 'terms' | 'thankyou'
 
 function getPageFromHash(): Page {
   const hash = window.location.hash
   if (hash === '#polityka-prywatnosci') return 'privacy'
   if (hash === '#regulamin') return 'terms'
+  if (hash === '#dziekujemy') return 'thankyou'
   return 'landing'
 }
 
@@ -100,6 +102,7 @@ function App() {
 
   if (page === 'privacy') return <PrivacyPolicy />
   if (page === 'terms') return <Terms />
+  if (page === 'thankyou') return <ThankYou />
 
   return (
     <div className="page">
